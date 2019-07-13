@@ -20,9 +20,10 @@ public class ItemResource {
 
     @Autowired
     private ItemService itemService;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(ItemResource.class);
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.GET,produces="application/json")
+    @GetMapping(value = "/{id}",produces="application/json")
     public @ResponseBody  ResponseEntity<?> getById(@PathVariable("id") Long id){
         LOGGER.info("getting item id {} ",id);
         if(!itemService.exists(id)){
